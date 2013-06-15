@@ -1,13 +1,32 @@
 <head>
-  <title>grahamcracker</title>
+  <title>gramcracker</title>
 </head>
 
 <body>
   {{> hello}}
+  {{> players}}
 </body>
 
 <template name="hello">
   <h1>Hello World!</h1>
   {{greeting}}
-  <input type="button" value="Click" />
+  <input id="join"type="button" value="Click" />
+  <button id="kill">X</button>
+</template>
+
+<template name="players">
+  <h3>Players</h3>
+  {{#each list}}
+    {{> player}}
+  {{/each}}
+</template>
+
+<template name="player">
+  <div class="username"> {{score}} | {{username}} </div>
+</template>
+
+
+<template name="judge">
+  <h3>Judge</h3>
+  {{playerJudge}}
 </template>
