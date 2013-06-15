@@ -11,7 +11,6 @@
   <h1>Hello World!</h1>
   {{greeting}}
   <input id="join"type="button" value="Click" />
-  <button id="kill">X</button>
 </template>
 
 <template name="players">
@@ -22,7 +21,10 @@
 </template>
 
 <template name="player">
-  <div class="username"> {{score}} | {{username}} </div>
+  <div class="username">
+    {{score}} | {{username}}
+    <button class="kill">X</button>
+  </div>
 </template>
 
 

@@ -14,11 +14,7 @@ if (Meteor.isClient) {
 
   Template.hello.events({
     'click input#join' : function () {
-      Players.insert({username: Session.get("username"), thumbnail:"imageChoice", score: 0});
-    },
-    'click button#kill' : function () {
-      // Players.remove();
-      console.log(Players.find());
+      Players.insert({username: Session.get("username"), thumbnail:"imageChoice", score: 0, isJudge: false});
     }
   });
 
@@ -29,10 +25,16 @@ if (Meteor.isClient) {
   Template.players.list = function(){
     return Players.find();
   };
+
+  Template.player.events({
+    'click button.kill' : function () {
+      Players.remove(this._id);
+    }
+  })
 }
 
 if (Meteor.isServer) {
   Meteor.startup(function () {
-    Players.remove({});
+    // Players.remove({});
   });
 }
